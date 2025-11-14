@@ -7,14 +7,18 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app, origins= "*") # Allow requests from your frontend
 app.secret_key = os.getenv("secret_key") 
+print(os.getenv("secret_key"))
 
 # --- Email Configuration ---
 # IMPORTANT: Use environment variables for security.
 # Do not hardcode your email or password in the code.
 EMAIL_ADDRESS = os.getenv('EMAIL_USER')
+print(EMAIL_ADDRESS)
 EMAIL_PASSWORD = os.getenv('EMAIL_PASS')
+print(EMAIL_PASSWORD)
 # RECIPIENT_EMAIL = "armankhan52210@gmail.com" # The email address where you want to receive messages
 RECIPIENT_EMAIL = os.getenv('EMAIL_USER') # The email address where you want to receive messages
+print(RECIPIENT_EMAIL)
 
 @app.route('/send-email', methods=['POST'])
 def send_email():
@@ -63,3 +67,4 @@ def send_email():
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+
